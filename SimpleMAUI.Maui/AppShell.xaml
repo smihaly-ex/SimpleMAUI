@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<simpleShell:SimpleShell
+    x:Class="SimpleMAUI.Maui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:SimpleMAUI.Maui"
+    xmlns:pages="clr-namespace:SimpleMAUI.Maui.Views.Pages"
+    xmlns:simpleCore="clr-namespace:SimpleToolkit.Core;assembly=SimpleToolkit.Core"
+    xmlns:simpleShell="clr-namespace:SimpleToolkit.SimpleShell;assembly=SimpleToolkit.SimpleShell"
+    xmlns:res="clr-namespace:SimpleMAUI.Maui.Resources.Localization"
+    xmlns:extension="clr-namespace:SimpleMAUI.Maui.Extension"
+
+    Background="{StaticResource PrimaryBrush}"
+
+    x:Name="thisShell">
+
+    <Tab
+        Title="{extension:Translate Key=HomeTitle}"
+        Route="HomeTab"
+        Icon="home_bar.png"
+        FlyoutIcon="{AppThemeBinding Light=home.png, Dark=home_dark.png}">
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate pages:HomePage}"
+            Route="HomePage" />
+    </Tab>
+    
+    <Tab
+        Title="{extension:Translate Key=MyPostTitle}"
+        Route="MyPostTab"
+        Icon="document_bar.png"
+        FlyoutIcon="{AppThemeBinding Light=document.png, Dark=document_dark.png}">
+        <ShellContent
+            Title="My PostP"
+            ContentTemplate="{DataTemplate pages:MyPostPage}"
+            Route="MyPostPage" />
+    </Tab>
+
+    <Tab
+        Title="{extension:Translate Key=ChatTitle}"
+        Route="ChatTab"
+        Icon="chat_bar.png"
+        FlyoutIcon="{AppThemeBinding Light=chat.png, Dark=chat_dark.png}">
+        <ShellContent
+            Title="Chat"
+            ContentTemplate="{DataTemplate pages:ChatPage}"
+            Route="ChatPage" />
+    </Tab>
+    
+    <Tab
+        Title="{extension:Translate Key=InviteFriendsTitle}"
+        Route="InviteFriendsTab"
+        Icon="add_user_bar.png"
+        FlyoutIcon="{AppThemeBinding Light=add_user.png, Dark=add_user_dark.png}">
+        <ShellContent
+            Title="Invite Friends"
+            ContentTemplate="{DataTemplate pages:InviteFriendsPage}"
+            Route="InviteFriendsPage" />
+    </Tab>
+
+    <Tab
+        Title="{extension:Translate Key=NotificationTitle}"
+        Route="NotificationTab"
+        Icon="bell_bar.png"
+        FlyoutIcon="{AppThemeBinding Light=bell.png, Dark=bell_dark.png}">
+        <ShellContent
+            Title="Notification"
+            ContentTemplate="{DataTemplate pages:NotificationPage}"
+            Route="NotificationPage" />
+    </Tab>
+    
+    <Tab
+        Title="{extension:Translate Key=AboutUsTitle}"
+        Route="AboutUsTab"
+        Icon="document_bar.png"
+        FlyoutIcon="{AppThemeBinding Light=document.png, Dark=document_dark.png}">
+        <ShellContent
+            Title="About Us"
+            ContentTemplate="{DataTemplate pages:AboutUsPage}"
+            Route="AboutUsPage" />
+    </Tab>
+
+    <Tab
+        Title="{extension:Translate Key=SupportTitle}"
+        Route="SupportTab"
+        Icon="headset_bar.png"
+        FlyoutIcon="{AppThemeBinding Light=headset.png, Dark=headset_dark.png}">
+        <ShellContent
+            Title="Support"
+            ContentTemplate="{DataTemplate pages:SupportPage}"
+            Route="SupportPage" />
+    </Tab>
+    
+    <Tab
+        Title="{extension:Translate Key=FAQTitle}"
+        Route="FaqTab"
+        Icon="help_bar.png"
+        FlyoutIcon="{AppThemeBinding Light=help.png, Dark=help_dark.png}">
+        <ShellContent
+            Title="FAQ"
+            ContentTemplate="{DataTemplate pages:FaqPage}"
+            Route="FaqPage" />
+    </Tab>
+
+    <Tab
+        Title="{extension:Translate Key=LanguageTitle}"
+        Route="LanguageTab"
+        Icon="language.png"
+        FlyoutIcon="{AppThemeBinding Light=language.png, Dark=language.png}">
+        <ShellContent
+            Title="Language"
+            ContentTemplate="{DataTemplate pages:LanguagePage}"
+            Route="LanguagePage" />
+    </Tab>
+
+
+    <simpleShell:SimpleShell.RootPageContainer>
+        <Grid
+            x:Name="rootPageContainer"
+            RowDefinitions="auto, *"
+            Background="{StaticResource PrimaryBrush}">
+            <Grid
+                x:Name="navBar"
+                RowDefinitions="60, 60"
+                Margin="20, 0">
+                <Image
+                    Grid.RowSpan="2"
+                    HorizontalOptions="End" VerticalOptions="Center"
+                    HeightRequest="60" WidthRequest="60"
+                    Aspect="AspectFit"
+                    Source="{Binding CurrentShellSection.Icon, Source={x:Reference thisShell}}"/>
+                <simpleCore:ContentButton
+                    WidthRequest="25" HeightRequest="25"
+                    HorizontalOptions="Start" VerticalOptions="Center"
+                    Clicked="MenuClicked">
+                    <Image
+                        Aspect="AspectFit"
+                        Source="menu.png"/>
+                </simpleCore:ContentButton>
+                <Label
+                    Grid.Row="1"
+                    Text="{Binding CurrentShellSection.Title, Source={x:Reference thisShell}}"
+                    VerticalOptions="Center"
+                    FontSize="30"
+                    FontFamily="NunitoBold"
+                    TextColor="Black"/>
+            </Grid>
+
+            <simpleShell:SimpleNavigationHost
+                Grid.Row="1"/>
+        </Grid>
+    </simpleShell:SimpleShell.RootPageContainer>
+
+    <simpleShell:SimpleShell.Content>
+        <Grid>
+            <simpleShell:SimpleNavigationHost/>
+
+            <Rectangle
+                x:Name="flyoutBackdrop"
+                Fill="Black"
+                Margin="-1"
+                InputTransparent="True">
+                <Rectangle.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Tapped="FlyoutBackdropTapped"/>
+                </Rectangle.GestureRecognizers>
+            </Rectangle>
+
+            <Grid
+                x:Name="flyout"
+                HorizontalOptions="Start" VerticalOptions="Fill"
+                Background="{AppThemeBinding Light=White, Dark=Black}"
+                WidthRequest="280"
+                Shadow="{OnPlatform Default={x:Null}, iOS={Shadow Brush=Black, Opacity=0.3}}">
+                <!-- TODO: On Android, TranslationX does not work when Shadow is set -->
+
+                <Path
+                    Fill="Transparent"
+                    Stroke="LightGray"
+                    StrokeThickness="10"
+                    Opacity="0.3">
+                    <Path.Data>
+                        <GeometryGroup>
+                            <EllipseGeometry
+                                RadiusX="75"
+                                RadiusY="75"
+                                Center="30,25" />
+                            <EllipseGeometry
+                                RadiusX="55"
+                                RadiusY="55"
+                                Center="20,120" />
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+
+                <Grid
+                    x:Name="flyoutContent"
+                    RowDefinitions="120, *, auto">
+                    <Grid
+                        ColumnDefinitions="auto, *"
+                        ColumnSpacing="15"
+                        Padding="20, 0">
+                        <Border
+                            HorizontalOptions="Start" VerticalOptions="Center"
+                            WidthRequest="65" HeightRequest="65"
+                            StrokeShape="{Ellipse}"
+                            StrokeThickness="0">
+                            <Image
+                                Source="avatar.jpg"
+                                Aspect="AspectFill"
+                                Background="Black"/>
+                        </Border>
+
+                        <VerticalStackLayout
+                            Grid.Column="1"
+                            VerticalOptions="Center">
+                            <Label
+                                Text="Angel Fernandus"
+                                FontSize="19"
+                                FontFamily="NunitoSemiBold"
+                                TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                            <Label
+                                Text="angel_fernandus"
+                                FontSize="13"
+                                TextColor="Gray"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <ScrollView
+                        Grid.Row="1">
+                        <VerticalStackLayout
+                            VerticalOptions="Center"
+                            Spacing="10">
+                            <VerticalStackLayout
+                                BindableLayout.ItemsSource="{Binding ShellSections, Source={x:Reference thisShell}}"
+                                Spacing="10">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate
+                                        x:DataType="BaseShellItem">
+                                        <simpleCore:ContentButton
+                                            Padding="20, 0"
+                                            Clicked="ItemClicked">
+                                            <VerticalStackLayout>
+                                                <Grid
+                                                    Padding="0, 13, 0, 10"
+                                                    ColumnDefinitions="45, *">
+                                                    <Image
+                                                        HorizontalOptions="Start" VerticalOptions="Center"
+                                                        WidthRequest="20" HeightRequest="20"
+                                                        Source="{Binding FlyoutIcon}"/>
+                                                    <Label
+                                                        Grid.Column="1"
+                                                        Text="{Binding Title}"
+                                                        FontFamily="NunitoSemiBold"
+                                                        FontSize="15"
+                                                        TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                                                </Grid>
+
+                                                <Rectangle
+                                                    Fill="{AppThemeBinding Light=LightGray, Dark=Gray}"
+                                                    HorizontalOptions="Fill" VerticalOptions="End"
+                                                    HeightRequest="1.5"/>
+                                            </VerticalStackLayout>
+                                        </simpleCore:ContentButton>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </VerticalStackLayout>
+                            <simpleCore:ContentButton
+                                Padding="20, 0">
+                                <VerticalStackLayout>
+                                    <Grid
+                                        Padding="0, 13, 0, 10"
+                                        ColumnDefinitions="45, *">
+                                        <Image
+                                            HorizontalOptions="Start" VerticalOptions="Center"
+                                            WidthRequest="20" HeightRequest="20"
+                                            Source="{AppThemeBinding Light=log_out.png, Dark=log_out_dark.png}"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            Text="{extension:Translate Key=LogoutTitle}"
+                                            FontFamily="NunitoSemiBold"
+                                            FontSize="15"
+                                            TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                                    </Grid>
+
+                                    <Rectangle
+                                        Fill="{AppThemeBinding Light=LightGray, Dark=Gray}"
+                                        HorizontalOptions="Fill" VerticalOptions="End"
+                                        HeightRequest="1.5"/>
+                                </VerticalStackLayout>
+                            </simpleCore:ContentButton>
+                        </VerticalStackLayout>
+                    </ScrollView>
+
+                    <Button
+                        Grid.Row="2"
+                        Text="{extension:Translate Key=CloseTitle}"
+                        Margin="20, 10"
+                        HorizontalOptions="Fill" VerticalOptions="Center"
+                        HeightRequest="50"
+                        CornerRadius="25"
+                        Background="{StaticResource PrimaryBrush}"
+                        TextColor="Black"
+                        FontSize="15"
+                        FontFamily="NunitoBold"
+                        Clicked="CloseFlyoutClicked"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </simpleShell:SimpleShell.Content>
+
+</simpleShell:SimpleShell>

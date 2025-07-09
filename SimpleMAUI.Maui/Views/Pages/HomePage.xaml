@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:BaseRootContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:SimpleMAUI.Maui.Views.Pages"
+    xmlns:viewModels="clr-namespace:SimpleMAUI.Core.Interfaces.ViewModels;assembly=SimpleMAUI.Core"
+    xmlns:models="clr-namespace:SimpleMAUI.Core.Models;assembly=SimpleMAUI.Core"
+    x:Class="SimpleMAUI.Maui.Views.Pages.HomePage"
+
+    x:DataType="viewModels:IHomePageViewModel"
+
+    Title="HomePage">
+
+    <Grid>
+        <CollectionView
+            ItemsSource="{Binding Cards}">
+            <CollectionView.Header>
+                <ContentView
+                    HeightRequest="20"/>
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate
+                    x:DataType="models:Card">
+                    <ContentView>
+                        <Border
+                            Margin="20, 10"
+                            StrokeShape="{RoundRectangle CornerRadius=15}"
+                            Background="{AppThemeBinding Light=White, Dark={StaticResource Gray950Brush}}"
+                            StrokeThickness="{OnPlatform iOS=0, MacCatalyst=0}"
+                            Stroke="{AppThemeBinding Light=LightGray, Dark=#222}"
+                            Shadow="{Shadow Brush={AppThemeBinding Light=Black, Dark=White}, Opacity=0.08, Radius=5, Offset='0,5'}">
+                            <Grid
+                                ColumnDefinitions="*, 110"
+                                ColumnSpacing="10">
+                                <Image
+                                    Grid.ColumnSpan="2"
+                                    Source="gradient.png"
+                                    VerticalOptions="End"
+                                    HeightRequest="100"
+                                    Aspect="Fill"
+                                    Opacity="0.25"/>
+                                <Image
+                                    Grid.Column="1"
+                                    Source="{Binding Image}"
+                                    Aspect="AspectFit"
+                                    VerticalOptions="Center"
+                                    HeightRequest="120"
+                                    Margin="0, 0, 20, 0"/>
+                                <Grid
+                                    RowDefinitions="auto, *"
+                                    RowSpacing="10"
+                                    Padding="20, 40, 0, 45">
+                                    <Label
+                                        Text="{Binding Title}"
+                                        FontSize="20"
+                                        FontFamily="NunitoSemiBold"
+                                        TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+                                    <Label
+                                        Grid.Row="1"
+                                        Text="{Binding Text}"
+                                        FontFamily="NunitoRegular"
+                                        TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}"/>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</pages:BaseRootContentPage>
