@@ -1,14 +1,26 @@
-using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SimpleMAUI.BLL.Helper;
+using System.Reflection;
 
-var builder = FunctionsApplication.CreateBuilder(args);
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication()
+    .ConfigureServices(services =>
+    {
+        services.AddDbContext<SimpleMAUIDbContext>(options =>
+        {
+            var connectionString = Environment.GetEnvironmentVariable("DBConnection");
+            options.UseNpgsql(connectionString);
+        });
+        services.AddHttpContextAccessor();
+        services.AddAutoMapper(cfg =>
+        {
+            cfg.AddMaps(Assembly.GetExecutingAssembly());
+        });
 
-builder.ConfigureFunctionsWebApplication();
+    })
+    .Build();
 
-builder.Services
-    .AddApplicationInsightsTelemetryWorkerService()
-    .ConfigureFunctionsApplicationInsights();
-
-builder.Build().Run();
+await host.RunAsync();
