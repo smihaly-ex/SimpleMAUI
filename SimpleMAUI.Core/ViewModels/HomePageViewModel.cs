@@ -1,29 +1,37 @@
 ﻿using SimpleMAUI.Core.Interfaces.ViewModels;
 using SimpleMAUI.Core.Models;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Net.Http.Json;
+using System.Text.Json;
 
 namespace SimpleMAUI.Core.ViewModels;
 
 public class HomePageViewModel : BasePageViewModel, IHomePageViewModel
 {
-    public List<Card> Cards { get; private set; } = new List<Card>
+    public ObservableCollection<Card> cards { get; set; } = new();
+    public HomePageViewModel()
     {
-        new Card
+        _ = LoadCardsAsync();
+    }
+    private async Task LoadCardsAsync()
+    {
+        using var httpClient = new HttpClient();
+        var response = await httpClient.GetAsync("http://localhost:7014/api/cards");
+
+        if (response.IsSuccessStatusCode)
         {
-            Title = "Sender",
-            Text = "Lorem ipsum is simply dummy text of the typesetting industry.",
-            Image = "sender.png"
-        },
-        new Card
+            var json = await response.Content.ReadAsStringAsync();
+            var cards = JsonSerializer.Deserialize<List<Card>>(json, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+
+            this.cards = new ObservableCollection<Card>(cards ?? new List<Card>());
+        }
+        else
         {
-            Title = "Carrier",
-            Text = "Lorem ipsum is simply dummy text of the typesetting industry.",
-            Image = "carrier.png"
-        },
-        new Card
-        {
-            Title = "Receiver",
-            Text = "Lorem ipsum is simply dummy text of the typesetting industry.",
-            Image = "receiver.png"
-        },
-    };
+            Console.WriteLine($"Failed to get cards: {response.StatusCode}");
+        }
+    }
 }

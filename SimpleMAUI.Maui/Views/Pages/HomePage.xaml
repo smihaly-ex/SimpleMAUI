@@ -13,7 +13,7 @@
 
     <Grid>
         <CollectionView
-            ItemsSource="{Binding Cards}">
+            ItemsSource="{Binding cards}">
             <CollectionView.Header>
                 <ContentView
                     HeightRequest="20"/>

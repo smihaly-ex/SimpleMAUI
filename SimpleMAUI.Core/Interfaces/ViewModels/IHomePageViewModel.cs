@@ -1,8 +1,9 @@
 ﻿using SimpleMAUI.Core.Models;
+using System.Collections.ObjectModel;
 
 namespace SimpleMAUI.Core.Interfaces.ViewModels;
 
-public interface IHomePageViewModel : IBasePageViewModel
+public interface IHomePageViewModel
 {
-    public List<Card> Cards { get; }
+    ObservableCollection<Card> cards { get; }
 }

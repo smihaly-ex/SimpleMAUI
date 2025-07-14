@@ -51,6 +51,8 @@ public static class MauiProgram
         builder.Services.AddTransient<SupportPage>();
         builder.Services.AddTransient<LanguagePage>();
 
+        //builder.Services.AddHttpClient("api", httpClient => httpClient.BaseAddress = new Uri(""));
+
         builder.Services.AddSingleton<INavigationService, NavigationService>();
 
         builder.Services.AddTransient<IHomePageViewModel, HomePageViewModel>();
