@@ -118,7 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutUsTitle" xml:space="preserve">
-    <value>About Us</value>
+    <value>Time Picker</value>
+  </data>
+  <data name="AddNewCard" xml:space="preserve">
+    <value>Add new product</value>
   </data>
   <data name="ChatTitle" xml:space="preserve">
     <value>Chat</value>
@@ -128,6 +131,18 @@
   </data>
   <data name="FAQTitle" xml:space="preserve">
     <value>FAQ</value>
+  </data>
+  <data name="FormDesc" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="FormDescAlert" xml:space="preserve">
+    <value>Enter the brief description of the product</value>
+  </data>
+  <data name="FormTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="FormTitleAlert" xml:space="preserve">
+    <value>Enter your product's name</value>
   </data>
   <data name="HomeTitle" xml:space="preserve">
     <value>Home</value>
@@ -146,6 +161,9 @@
   </data>
   <data name="NotificationTitle" xml:space="preserve">
     <value>Notification</value>
+  </data>
+  <data name="PhotoPicker" xml:space="preserve">
+    <value>Choose photo</value>
   </data>
   <data name="SupportTitle" xml:space="preserve">
     <value>Support</value>

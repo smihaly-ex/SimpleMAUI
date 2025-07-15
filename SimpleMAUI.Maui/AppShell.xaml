@@ -9,6 +9,7 @@
     xmlns:simpleShell="clr-namespace:SimpleToolkit.SimpleShell;assembly=SimpleToolkit.SimpleShell"
     xmlns:res="clr-namespace:SimpleMAUI.Maui.Resources.Localization"
     xmlns:extension="clr-namespace:SimpleMAUI.Maui.Extension"
+    xmlns:navigationdrawer="clr-namespace:Syncfusion.Maui.Toolkit.NavigationDrawer;assembly=Syncfusion.Maui.Toolkit"
 
     Background="{StaticResource PrimaryBrush}"
 
@@ -206,7 +207,7 @@
                             StrokeShape="{Ellipse}"
                             StrokeThickness="0">
                             <Image
-                                Source="avatar.jpg"
+                                Source="admin.png"
                                 Aspect="AspectFill"
                                 Background="Black"/>
                         </Border>
@@ -215,12 +216,12 @@
                             Grid.Column="1"
                             VerticalOptions="Center">
                             <Label
-                                Text="Angel Fernandus"
+                                Text="Admin"
                                 FontSize="19"
                                 FontFamily="NunitoSemiBold"
                                 TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
                             <Label
-                                Text="angel_fernandus"
+                                Text="admin"
                                 FontSize="13"
                                 TextColor="Gray"/>
                         </VerticalStackLayout>

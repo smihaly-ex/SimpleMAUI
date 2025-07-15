@@ -3,13 +3,39 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages="clr-namespace:SimpleMAUI.Maui.Views.Pages"
+    xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
     x:Class="SimpleMAUI.Maui.Views.Pages.MyPostPage"
+    xmlns:extension="clr-namespace:SimpleMAUI.Maui.Extension"
     Title="MyPostPage">
 
-    <Grid>
-        <Label 
-            Text="MyPostPage"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </Grid>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <inputLayout:SfTextInputLayout Hint="{extension:Translate Key=FormTitle}"
+                                           HelperText="{extension:Translate Key=FormTitleAlert}"
+                                           ContainerType="Outlined">
+                <Entry x:Name="TitleEntry"/>
+            </inputLayout:SfTextInputLayout>
+
+            <inputLayout:SfTextInputLayout Hint="{extension:Translate Key=FormDesc}"
+                                           HelperText="{extension:Translate Key=FormDescAlert}"
+                                           ContainerType="Outlined">
+                <Entry x:Name="DescEntry"/>
+            </inputLayout:SfTextInputLayout>
+
+            <Image x:Name="PreviewImage"
+               WidthRequest="200"
+               HeightRequest="200"
+               BackgroundColor="LightGray"
+               Aspect="AspectFill" />
+
+            <Button Text="{extension:Translate Key=PhotoPicker}"
+                    Clicked="OnPickImageClicked" />
+
+            <Button Text="{extension:Translate Key=AddNewCard}"
+                    Clicked="OnPostClicked"
+                    BackgroundColor="BlueViolet"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </pages:BaseRootContentPage>

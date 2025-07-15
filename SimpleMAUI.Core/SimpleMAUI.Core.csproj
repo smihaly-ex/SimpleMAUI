@@ -18,6 +18,9 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Interfaces\ViewModels\" />
     <Folder Include="Interfaces\Services\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.100" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.100" />
   </ItemGroup>
 </Project>

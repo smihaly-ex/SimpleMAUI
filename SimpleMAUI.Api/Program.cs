@@ -20,6 +20,15 @@ var host = new HostBuilder()
             cfg.AddMaps(Assembly.GetExecutingAssembly());
         });
 
+        services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(policy =>
+            {
+                policy.AllowAnyHeader()
+                      .AllowAnyMethod();
+            });
+        });
+
     })
     .Build();
 

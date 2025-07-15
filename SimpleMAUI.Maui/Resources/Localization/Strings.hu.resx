@@ -118,7 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutUsTitle" xml:space="preserve">
-    <value>Rólunk</value>
+    <value>Időválasztás</value>
+  </data>
+  <data name="AddNewCard" xml:space="preserve">
+    <value>Új termék hozzáadása</value>
   </data>
   <data name="ChatTitle" xml:space="preserve">
     <value>Üzenőfal</value>
@@ -128,6 +131,18 @@
   </data>
   <data name="FAQTitle" xml:space="preserve">
     <value>FAQ</value>
+  </data>
+  <data name="FormDesc" xml:space="preserve">
+    <value>Leírás</value>
+  </data>
+  <data name="FormDescAlert" xml:space="preserve">
+    <value>Add meg a termék leírását</value>
+  </data>
+  <data name="FormTitle" xml:space="preserve">
+    <value>Cím</value>
+  </data>
+  <data name="FormTitleAlert" xml:space="preserve">
+    <value>Add meg a terméked nevét</value>
   </data>
   <data name="HomeTitle" xml:space="preserve">
     <value>Otthon</value>
@@ -146,6 +161,9 @@
   </data>
   <data name="NotificationTitle" xml:space="preserve">
     <value>Értesítés</value>
+  </data>
+  <data name="PhotoPicker" xml:space="preserve">
+    <value>Válasz képet</value>
   </data>
   <data name="SupportTitle" xml:space="preserve">
     <value>Segítség</value>

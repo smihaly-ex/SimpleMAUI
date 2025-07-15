@@ -1,11 +1,12 @@
-﻿using SimpleMAUI.Core.Interfaces.Services;
+﻿using Microsoft.Extensions.Logging;
+using SimpleMAUI.Core.Interfaces.Services;
 using SimpleMAUI.Core.Interfaces.ViewModels;
 using SimpleMAUI.Core.ViewModels;
 using SimpleMAUI.Maui.Services;
 using SimpleMAUI.Maui.Views.Pages;
-using Microsoft.Extensions.Logging;
 using SimpleToolkit.Core;
 using SimpleToolkit.SimpleShell;
+using Syncfusion.Maui.Toolkit.Hosting;
 
 namespace SimpleMAUI.Maui;
 
@@ -16,6 +17,7 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
+            .ConfigureSyncfusionToolkit()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

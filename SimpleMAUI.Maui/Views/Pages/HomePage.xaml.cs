@@ -5,9 +5,17 @@ namespace SimpleMAUI.Maui.Views.Pages;
 
 public partial class HomePage : BaseRootContentPage
 {
-	public HomePage(IHomePageViewModel viewModel, INavigationService navigationService) : base(navigationService)
+    private readonly IHomePageViewModel _viewModel;
+    public HomePage(IHomePageViewModel viewModel, INavigationService navigationService) : base(navigationService)
 	{
 		BindingContext = viewModel;
-		InitializeComponent();
+        _viewModel = viewModel;
+        InitializeComponent();
 	}
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await _viewModel.RefreshDataAsync();
+    }
 }

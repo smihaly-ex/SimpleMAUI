@@ -13,7 +13,7 @@
 
     <Grid>
         <CollectionView
-            ItemsSource="{Binding cards}">
+            ItemsSource="{Binding Cards}">
             <CollectionView.Header>
                 <ContentView
                     HeightRequest="20"/>
@@ -42,7 +42,7 @@
                                     Opacity="0.25"/>
                                 <Image
                                     Grid.Column="1"
-                                    Source="{Binding Image}"
+                                    Source="{Binding ImageSource}"
                                     Aspect="AspectFit"
                                     VerticalOptions="Center"
                                     HeightRequest="120"

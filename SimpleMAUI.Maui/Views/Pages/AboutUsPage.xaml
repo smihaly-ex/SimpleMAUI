@@ -3,13 +3,11 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages="clr-namespace:SimpleMAUI.Maui.Views.Pages"
+    xmlns:picker="clr-namespace:Syncfusion.Maui.Toolkit.Picker;assembly=Syncfusion.Maui.Toolkit"
     x:Class="SimpleMAUI.Maui.Views.Pages.AboutUsPage"
     Title="AboutUsPage">
 
     <Grid>
-        <Label 
-            Text="AboutUsPage"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <picker:SfDatePicker SelectedDate="2/23/2001"/>
     </Grid>
 </pages:BaseRootContentPage>

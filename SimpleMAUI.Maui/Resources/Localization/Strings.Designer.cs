@@ -61,11 +61,20 @@ namespace SimpleMAUI.Maui.Resources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About Us.
+        ///   Looks up a localized string similar to Time Picker.
         /// </summary>
         internal static string AboutUsTitle {
             get {
                 return ResourceManager.GetString("AboutUsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new product.
+        /// </summary>
+        internal static string AddNewCard {
+            get {
+                return ResourceManager.GetString("AddNewCard", resourceCulture);
             }
         }
         
@@ -93,6 +102,42 @@ namespace SimpleMAUI.Maui.Resources.Localization {
         internal static string FAQTitle {
             get {
                 return ResourceManager.GetString("FAQTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string FormDesc {
+            get {
+                return ResourceManager.GetString("FormDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the brief description of the product.
+        /// </summary>
+        internal static string FormDescAlert {
+            get {
+                return ResourceManager.GetString("FormDescAlert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        internal static string FormTitle {
+            get {
+                return ResourceManager.GetString("FormTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your product&apos;s name.
+        /// </summary>
+        internal static string FormTitleAlert {
+            get {
+                return ResourceManager.GetString("FormTitleAlert", resourceCulture);
             }
         }
         
@@ -147,6 +192,15 @@ namespace SimpleMAUI.Maui.Resources.Localization {
         internal static string NotificationTitle {
             get {
                 return ResourceManager.GetString("NotificationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose photo.
+        /// </summary>
+        internal static string PhotoPicker {
+            get {
+                return ResourceManager.GetString("PhotoPicker", resourceCulture);
             }
         }
         
