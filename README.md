@@ -1,5 +1,14 @@
 # SimpleMAUI
 
+## About Projects
+
+#### 2 project:
+SimpleMAUI: 
+SyncfusionNavigation:
+
+### Result:
+![SyncfusionNavigation](https://github.com/user-attachments/assets/642fb3d9-431b-4f4a-8158-f94444a9bc48)
+
 ## MAUI Basics
 
 ### Understand MVVM
@@ -41,4 +50,13 @@ Model classes are non-visual classes that encapsulate the app's data. Therefore,
 ### Syncfusion free MAUI toolkit
 
 **Website**: https://www.syncfusion.com/net-maui-toolkit
+
 **Docs**: https://help.syncfusion.com/maui-toolkit/navigationdrawer/getting-started
+
+### For communication to backend
+
+https://learn.microsoft.com/en-us/dotnet/maui/data-cloud/rest?view=net-maui-9.0
+
+### Custom controls
+
+https://learn.microsoft.com/en-us/dotnet/maui/user-interface/handlers/create?view=net-maui-9.0
