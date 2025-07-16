@@ -3,8 +3,13 @@
 ## About Projects
 
 #### 2 project:
-SimpleMAUI: 
-SyncfusionNavigation:
+**SimpleMAUI**: 
+
+### Result:
+![SimpleMAUI](https://github.com/user-attachments/assets/d1c4359c-ad5f-4feb-8117-2ada586704e3)
+
+
+**SyncfusionNavigation**:
 
 ### Result:
 ![SyncfusionNavigation](https://github.com/user-attachments/assets/642fb3d9-431b-4f4a-8158-f94444a9bc48)
@@ -60,3 +65,7 @@ https://learn.microsoft.com/en-us/dotnet/maui/data-cloud/rest?view=net-maui-9.0
 ### Custom controls
 
 https://learn.microsoft.com/en-us/dotnet/maui/user-interface/handlers/create?view=net-maui-9.0
+
+### For testing on localhost
+
+https://learn.microsoft.com/en-us/dotnet/maui/data-cloud/local-web-services?view=net-maui-9.0
