@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SyncfusionNavigation.Controls"
+             x:Class="SyncfusionNavigation.Pages.MyDoorsPage">
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <controls:NameCardView NameText="Super Door" />
+        <controls:CustomSlider Minimum="0" Maximum="100" Value="0"/>
+    </StackLayout>
+</ContentView>

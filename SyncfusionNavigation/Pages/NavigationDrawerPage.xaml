@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:navigationdrawer="clr-namespace:Syncfusion.Maui.Toolkit.NavigationDrawer;assembly=Syncfusion.Maui.Toolkit"
+             x:Class="SyncfusionNavigation.Pages.NavigationDrawerPage">
+    <navigationdrawer:SfNavigationDrawer x:Name="navigationDrawer">
+        <navigationdrawer:SfNavigationDrawer.DrawerSettings>
+            <navigationdrawer:DrawerSettings DrawerWidth="250"
+                                 DrawerHeaderHeight="200">
+                <navigationdrawer:DrawerSettings.DrawerHeaderView>
+                    <Grid BackgroundColor="White" RowDefinitions="120,40">
+                        <Image Source="user.jpg"
+                               HeightRequest="90"
+                               WidthRequest="90"
+                               BackgroundColor="Transparent"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               Margin="20,0,0,0">
+                            <Image.Clip>
+                                <EllipseGeometry Center="45,45" RadiusX="45" RadiusY="45" />
+                            </Image.Clip>
+                        </Image>
+                        <Label Text="Mihaly Sarolta"
+                               Grid.Row="1"
+                               HorizontalTextAlignment="Start"
+                               HorizontalOptions="Start"
+                               FontSize="16"
+                               FontFamily="Montserrat"
+                               TextColor="Black" Margin="20,0,0,0"/>
+                    </Grid>
+                </navigationdrawer:DrawerSettings.DrawerHeaderView>
+                <navigationdrawer:DrawerSettings.DrawerContentView >
+                    <Grid RowDefinitions="*,Auto">
+                        <ListView x:Name="listView" BackgroundColor="White" Grid.Row="0"
+                                    ItemSelected="DrawerListView_ItemSelected" SeparatorVisibility="None" SelectionMode="Single">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <VerticalStackLayout HeightRequest="40"
+                                                HorizontalOptions="Start" Padding="20,10,0,0">
+                                            <Label Text="{Binding}"
+                                                   FontSize="14"
+                                                   FontFamily="Montserrat"
+                                                   TextColor="Black"
+                                                   HorizontalTextAlignment="Start"
+                                                   VerticalTextAlignment="Center"/>
+                                        </VerticalStackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Image Source="harmonie.png"
+                               Grid.Row="1"
+                               HorizontalOptions="Fill"
+                               VerticalOptions="End"
+                               Aspect="AspectFill"
+                               HeightRequest="215" />
+                    </Grid>
+                </navigationdrawer:DrawerSettings.DrawerContentView>
+            </navigationdrawer:DrawerSettings>
+        </navigationdrawer:SfNavigationDrawer.DrawerSettings>
+        <navigationdrawer:SfNavigationDrawer.ContentView>
+            <Grid x:Name="mainContentView" 
+            BackgroundColor="White" RowDefinitions="Auto,*">
+                <HorizontalStackLayout BackgroundColor="#ffe1b8" Spacing="10" Padding="5,0,0,0">
+                    <ImageButton x:Name="hamburgerButton"
+                                 HeightRequest="50"
+                                 WidthRequest="50"
+                                 HorizontalOptions="Start"
+                                 Source="hamburgericon.png"
+                                 BackgroundColor="#ffe1b8"
+                                 Clicked="hamburgerButton_Clicked"/>
+                    <Label x:Name="PageTitle" 
+                           HeightRequest="50" 
+                           HorizontalTextAlignment="Center" 
+                           VerticalTextAlignment="Center" 
+                           Text="Home" FontSize="16" 
+                           TextColor="Black" 
+                           BackgroundColor="#ffe1b8"/>
+                </HorizontalStackLayout>
+                <ContentView x:Name="PageHost" Grid.Row="1"/>
+            </Grid>
+        </navigationdrawer:SfNavigationDrawer.ContentView>
+    </navigationdrawer:SfNavigationDrawer>
+</ContentPage>
