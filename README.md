@@ -52,6 +52,10 @@ Model classes are non-visual classes that encapsulate the app's data. Therefore,
 
 ## Tools
 
+### Original Documentation
+
+https://learn.microsoft.com/en-us/dotnet/maui/?view=net-maui-9.0&WT.mc_id=dotnet-35129-website
+
 ### Syncfusion free MAUI toolkit
 
 **Website**: https://www.syncfusion.com/net-maui-toolkit
