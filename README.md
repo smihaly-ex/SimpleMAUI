@@ -3,13 +3,13 @@
 ## About Projects
 
 #### 2 project:
-**SimpleMAUI**: 
+**SimpleMAUI**: This includes the SimpleMAUI.Api, SimpleMAUI.BLL, SimpleMAUI.Maui.Core, and SimpleMAUI.Maui projects. The API must be run separately for the MAUI application to work. The application is capable of creating Cards and displaying them on the HomePage. The project includes localization and a navigation drawer as well. No external libraries are used in the project.
 
 ### Result:
 ![SimpleMAUI](https://github.com/user-attachments/assets/d1c4359c-ad5f-4feb-8117-2ada586704e3)
 
 
-**SyncfusionNavigation**:
+**SyncfusionNavigation**: This project uses the navigation drawer from Syncfusion’s free toolkit. It also includes custom-created components.
 
 ### Result:
 ![SyncfusionNavigation](https://github.com/user-attachments/assets/642fb3d9-431b-4f4a-8158-f94444a9bc48)
