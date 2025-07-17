@@ -12,7 +12,8 @@
 **SyncfusionNavigation**: This project uses the navigation drawer from Syncfusion’s free toolkit. It also includes custom-created components.
 
 ### Result:
-![SyncfusionNavigation](https://github.com/user-attachments/assets/642fb3d9-431b-4f4a-8158-f94444a9bc48)
+![GIF 7-17-2025 9-39-37 AM](https://github.com/user-attachments/assets/92ab936d-1b4c-4a6f-977d-6148bf76be73)
+
 
 ## MAUI Basics
 
