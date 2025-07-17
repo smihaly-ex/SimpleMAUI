@@ -3,8 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:SyncfusionNavigation.Controls"
              x:Class="SyncfusionNavigation.Pages.MyDoorsPage">
-    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <controls:NameCardView NameText="Super Door" />
-        <controls:CustomSlider Minimum="0" Maximum="100" Value="0"/>
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20">
+
+        <!-- Name Card -->
+        <controls:NameCardView NameText="LC.225.000000007" />
+
+        <!-- Custom Slider -->
+        <controls:CustomSlider Minimum="0" Maximum="100" Value="75"/>
+
+        <!-- Row of 5 Square Buttons -->
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Button WidthRequest="50" HeightRequest="50" ImageSource="upload.png" BackgroundColor="#ffdb9e"/>
+            <Button WidthRequest="50" HeightRequest="50" ImageSource="lock.png" BackgroundColor="#ffdb9e"/>
+            <Button WidthRequest="50" HeightRequest="50" ImageSource="retry.png" BackgroundColor="#ff8a66"/>
+            <Button WidthRequest="50" HeightRequest="50" ImageSource="door.png" BackgroundColor="#ff8a66"/>
+            <Button WidthRequest="50" HeightRequest="50" ImageSource="battery.png" BackgroundColor="#ff8a66"/>
+        </HorizontalStackLayout>
+
     </StackLayout>
 </ContentView>

@@ -102,14 +102,17 @@ public partial class CustomSlider : ContentView
 
             case GestureStatus.Running:
                 var newX = _thumbBorder.TranslationX + e.TotalX;
-                var maxX = Width - _thumbBorder.Width;
+                var trackWidth = _trackFrame.Width;
+                var maxX = trackWidth - _thumbBorder.Width;
 
-                // Clamp the value between 0 and maxX
+                if (maxX <= 0)
+                    return;
+
+                // Clamp and apply translation
                 newX = Math.Max(0, Math.Min(maxX, newX));
-
                 _thumbBorder.TranslationX = newX;
 
-                // Update value based on position (0 to 1 range)
+                // Update Value based on the thumb's relative position
                 Value = Minimum + (Maximum - Minimum) * (newX / maxX);
                 break;
 
@@ -123,15 +126,13 @@ public partial class CustomSlider : ContentView
     {
         if (Width <= 0 || _thumbBorder == null) return;
 
-        var maxX = Width - _thumbBorder.Width;
+        var trackWidth = _trackFrame.Width;
+        var maxX = trackWidth - _thumbBorder.Width;
+
         var normalizedValue = (Value - Minimum) / (Maximum - Minimum);
         var newX = normalizedValue * maxX;
 
-        // Ensure we don't set invalid positions
-        if (!double.IsNaN(newX)
-            && !double.IsInfinity(newX)
-            && newX >= 0
-            && newX <= maxX)
+        if (!double.IsNaN(newX) && !double.IsInfinity(newX))
         {
             _thumbBorder.TranslationX = newX;
         }
